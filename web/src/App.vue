@@ -203,6 +203,19 @@ html, body {
   50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
 }
 
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 1);
+  }
+}
+
 .logo-text-container {
   display: flex;
   flex-direction: column;
@@ -275,8 +288,8 @@ html, body {
 
 .login-logo {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 4rem;
+  height: 4rem;
   margin: 0 auto 1rem;
 }
 
@@ -296,11 +309,13 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background: #f59e0b;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #ffffff;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  z-index: 2;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .login-title {
