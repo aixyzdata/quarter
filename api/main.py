@@ -56,6 +56,30 @@ async def get_services():
                 "port": 3705
             },
             {
+                "name": "Skipper",
+                "description": "Orquestrador de Navegação e Extração",
+                "url": "http://localhost:3702",
+                "port": 3702
+            },
+            {
+                "name": "Tollgate",
+                "description": "Sistema de Controle de Acesso",
+                "url": "http://localhost:3703",
+                "port": 3703
+            },
+            {
+                "name": "Beacon",
+                "description": "Sistema de Monitoramento",
+                "url": "http://localhost:3708",
+                "port": 3708
+            },
+            {
+                "name": "Fisher",
+                "description": "Sistema de Coleta de Dados",
+                "url": "http://localhost:7724",
+                "port": 7724
+            },
+            {
                 "name": "Keycloak",
                 "description": "Identity Provider",
                 "url": "http://localhost:8080/admin",
