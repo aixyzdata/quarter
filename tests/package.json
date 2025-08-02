@@ -1,0 +1,33 @@
+{
+  "name": "quarter-bdd-tests",
+  "version": "1.0.0",
+  "description": "Testes BDD para o Quarter - Sistema de Login e Redirecionamento",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:login": "cucumber-js tests/features/login_redirect.feature",
+    "test:watch": "cucumber-js --watch",
+    "test:parallel": "cucumber-js --parallel 4",
+    "report": "open cucumber-report.html"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^9.0.0",
+    "chai": "^4.3.7",
+    "puppeteer": "^21.0.0",
+    "cucumber-html-reporter": "^7.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "bdd",
+    "cucumber",
+    "puppeteer",
+    "testing",
+    "quarter",
+    "canonika"
+  ],
+  "author": "Canonika Team",
+  "license": "MIT"
+} 

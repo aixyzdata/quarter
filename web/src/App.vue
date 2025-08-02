@@ -85,10 +85,16 @@ export default {
         email: 'admin@canonika.io',
         password: 'admin123'
       },
-      error: null
+      error: null,
+      redirectTo: null
     }
   },
   methods: {
+    getRedirectUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('redirect_to');
+    },
+    
     async handleLogin() {
       this.error = null;
       try {
@@ -97,8 +103,15 @@ export default {
           // Salvar estado de autenticação
           this.saveAuthState();
           
-          // Redirecionar para Harbor (dashboard principal)
-          window.location.href = 'http://localhost:3701';
+          // Verificar se há redirect_to
+          const redirectTo = this.getRedirectUrl();
+          if (redirectTo) {
+            // Redirecionar para a URL original
+            window.location.href = decodeURIComponent(redirectTo);
+          } else {
+            // Redirecionar para Harbor (dashboard principal)
+            window.location.href = 'http://localhost:3701';
+          }
         } else {
           this.error = 'Credenciais inválidas.';
         }
@@ -115,6 +128,12 @@ export default {
         roles: ['canonika_admin']
       }));
     }
+  },
+  
+  mounted() {
+    // Capturar redirect_to da URL
+    this.redirectTo = this.getRedirectUrl();
+    console.log('Redirect to:', this.redirectTo);
   }
 }
 </script>
